@@ -1,5 +1,3 @@
-
-
 function getNumberName(num){
     const ty = ['ten' ,'twenty' ,'thirty' ,'forty' ,'fifty' ,'sixty' ,'seventy' ,'eighty' ,'ninety'];
     const teen = ['eleven' ,'twelve' ,'thirteen' ,'fourteen' ,'fifteen' ,'sixteen' ,'seventeen' ,'eighteen' ,'nineteen'];
