@@ -26,10 +26,10 @@ function getNumberName(num){
             result += `${ty[tenth - 1]}`;
             return result;
         } else if (tenth + first > 10 && tenth + first < 20){
-            result += `${teen[first-1])`;
+            result += `${teen[first - 1]}`;
             return result;
-        } else if (tenth first >20){
-            result += `${ty[tenth -1]};
+        } else if (tenth + first > 20){
+            result += `${ty[tenth - 1]}`;
         }
     }
     return result += `${underTen[first]}`;
