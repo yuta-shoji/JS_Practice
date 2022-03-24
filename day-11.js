@@ -357,10 +357,18 @@ function addTogether(array1, array2) {
 
 //6
 //関数 addTogether の引数の配列が異なる長さであっても動くよう、関数を修正してください。
+function addTogetherRemake(array1, array2) {
+    const result = [];
+    const len = Math.max(array1.length, array2.length);
+    for (let i = 0; i < len; i++) {
+        result.push([array1[i], array2[i]].filter(Boolean).reduce((sum, num) => sum + num, 0));
+    }
+    return result;
+}
 
 
-
-// test(addTogether([1], [4, 5, 6]), [5, 5, 6]);
+// test(addTogetherRemake([1], [4, 5, 6]), [5, 5, 6]);
+// test(addTogetherRemake([1, 2], [3, 4, 5, 6, 7]), [4, 6, 5, 6, 7]);
 
 //###################################################################################################################
 //応用演習
@@ -374,6 +382,10 @@ function addTogether(array1, array2) {
  * @returns {Array<any>} 重複していない値のみが入った配列
  */
 // ここにコードを書きましょう
+function unique(array) {
+    const duplicateArray = Array.from(new Set(array.filter((x, i, s) => s.indexOf(x) !== s.lastIndexOf(x))));
+    return array.filter((v) => !duplicateArray.includes(v));
+}
 
 // test(unique([1, 1, 1, 1, 1]), []);
 // test(unique([1, 3, 4, 5, 2, 4]), [1, 3, 5, 2]);
@@ -387,10 +399,18 @@ function addTogether(array1, array2) {
  * @returns {number} 引数の合計値
  */
 // ここにコードを書きましょう
+function sum2(num1, ...array) {
+    let result = 0;
+    const flatArray = [num1, array].flat(Infinity);
+    for (let i = 0; i < flatArray.length; i++) {
+        result += Number(flatArray[i]);
+    }
+    return result;
+}
 
-// test(sum(1), 1);
-// test(sum(1, 1, 1, 1, 1), 5);
-// test(sum(1, 2, 3, 4, 5), 15);
+// test(sum2(1), 1);
+// test(sum2(1, 1, 1, 1, 1), 5);
+// test(sum2(1, 2, 3, 4, 5), 15);
 
 //3
 //関数 zip を宣言してください。不特定の数の配列を引数として取り、各配列の値が全部入った配列を返してください。
@@ -400,6 +420,9 @@ function addTogether(array1, array2) {
  * @returns {Array<any>} 与えられた配列内のすべての値を持つ配列
  */
 // ここにコードを書きましょう
+function zip(array, ...arrays) {
+    return [array,arrays].flat(Infinity);
+}
 
 // test(zip([1], [2], [3], [4]), [1, 2, 3, 4]);
 // test(zip([1, 2, 3], [4, 5], [1], [4]), [1, 2, 3, 4, 5, 1, 4]);
@@ -415,6 +438,29 @@ function addTogether(array1, array2) {
  * @returns {Array<string>} 到着するゲストへの挨拶
  */
 // ここにコードを書きましょう
+function getIntroductions(n) {
+    const result = [];
+    let str = "";
+    if (n === 0) {
+        return "noGuests..."
+    } else {
+        for (let i = 1; i <= n; i++) {
+            str += `welcome ${i}`;
+            if (i > 1) {
+                str += `, meet 1`;
+            }
+            if (i > 2) {
+                for (let j = 2; j <= i - 2; j++) {
+                    str += `, ${j}`;
+                }
+                str += ` and ${i - 1}`;
+            }
+            result.push(str);
+            str = ""
+        }
+        return result;
+    }
+}
 
 // test(getIntroductions(1), ["welcome 1"]);
 // test(getIntroductions(2), ["welcome 1", "welcome 2, meet 1"]);
@@ -436,10 +482,14 @@ function addTogether(array1, array2) {
  */
 
 // ここにコードを書きましょう
+function christmasTree(str, height) {
+
+}
 
 // const expected1 = "T";
 // test(christmasTree("T", 1), expected1);
 // const expected2 = " +\n+ +";
+// console.log(expected2);
 // test(christmasTree("+", 2), expected2);
 // const expected4 = "   #\n  # #\n # # #\n# # # #";
 // test(christmasTree("#", 4), expected4);
