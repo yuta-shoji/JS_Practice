@@ -483,16 +483,32 @@ function getIntroductions(n) {
 
 // ここにコードを書きましょう
 function christmasTree(str, height) {
-
+    let result = "";
+    for (let i = 1; i <= height; i++) {
+        if (i > 1) {
+            result += "\n";
+        }
+        for (let j = 1; j < height - i; j++) {
+            result += " ";
+        }
+        for (let k = 1; k <= i; k++) {
+            if (i === height && k ===1) {
+                result += str;
+            } else {
+                result += " " + str;
+            }
+        }
+    }
+    return result;
 }
 
-// const expected1 = "T";
-// test(christmasTree("T", 1), expected1);
-// const expected2 = " +\n+ +";
-// console.log(expected2);
-// test(christmasTree("+", 2), expected2);
-// const expected4 = "   #\n  # #\n # # #\n# # # #";
-// test(christmasTree("#", 4), expected4);
+const expected1 = "T";
+test(christmasTree("T", 1), expected1);
+const expected2 = " +\n+ +";
+test(christmasTree("+", 2), expected2);
+const expected4 = "   #\n  # #\n # # #\n# # # #";
+test(christmasTree("#", 4), expected4);
+console.log(christmasTree("*", 20));
 
 // \n は改行を意味するコードです。実際に文字列をconsole.logすると、ツリーがこんな風に表示されますよ。
 
