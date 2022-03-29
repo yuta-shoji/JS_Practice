@@ -28,14 +28,102 @@ function divide(x) {
 
 const divide2 = divide(2);
 
-test(divide2(4), 0.5);
-test(divide(2)(1), 2);
-test(divide(6)(2), 3);
+// test(divide2(4), 0.5);
+// test(divide(2)(1), 2);
+// test(divide(6)(2), 3);
 
 
 //#########################################################################################################################
-//ペア演習
+//基礎演習
+
+const myMathObject = {
+    sum: function (...args) {
+        let result = 0;
+        args.map(num => result += num);
+        return result;
+    },
+    product: function (...args) {
+        let result = 1;
+        args.map(num => result *= num);
+        return result;
+    },
+    isEven: function (num) {
+        return num % 2 === 0;
+    },
+    getNumbers: function (...args) {
+        const result = [];
+        for (const arr of args) {
+            if (typeof arr === "number") {
+                result.push(arr);
+            }
+        }
+        return result;
+    },
+    abs: function (num) {
+        if (num < 0) {
+            return num * - 1;
+        } else {
+            return num;
+        }
+    }
+};
+
 //1
+//オブジェクト myMathObject のメソッドを作成してみましょう。
+
+// これらはテストのサンプルです。下の問題は自分でテストを考えましょう。
+
+//・sum は全ての引数の合計を返します
+//・product は全ての引数の 積 を返します。
+//・isEven は引数に数値を取り、それが偶数の場合は true を返し、奇数の場合は false を返します。
+
+// test(myMathObject.sum(1), 1);
+// test(myMathObject.sum(1, 2, 3), 6);
+// test(myMathObject.product(1), 1);
+// test(myMathObject.product(1, 2, 3, 4), 24);
+// test(myMathObject.isEven(1), false);
+// test(myMathObject.isEven(2), true);
+
+//2
+//作成したメソッドを使って、次の問題を解きましょう。
+
+//①19283, 18475, 199999 の合計値を求めてください。
+// test(myMathObject.sum(19283, 18475, 199999), 237757);
+//②19283, 18475, 199999 の積を求めてください。
+// test(myMathObject.product(19283, 18475, 199999), 71250328746575);
+//③19 が偶数か奇数かを求めてください。
+// test(myMathObject.isEven(19), false);
+
+//3
+//myMathObject に getNumbers メソッドを追加してください。
+
+/**
+ * @param {...any} ??? - 任意の数の引数
+ * @returns {Array<number>} 引数のうち、数値型のものだけを要素に持つ配列。要素の順番は引数で与えられた順番にする。
+
+ */
+// test(myMathObject.getNumbers(1, 2, 3, 4), [1, 2, 3, 4]);
+// test(myMathObject.getNumbers("foo", 3, "4", "hi", 1), [3, 1]);
+
+//#########################################################################################################################
+//中級演習
+
+//1
+//myMathObject に abs メソッドを追加してください。Math のビルトイン・メソッドを 使用してはいけません 。
+
+/**
+ * @param {number} ???
+ * @returns {number} 与えられた数字の絶対値
+ */
+
+// test(myMathObject.abs(1), 1);
+// test(myMathObject.abs(-1), 1);
+// test(myMathObject.abs(435678.745389), 435678.745389);
+// test(myMathObject.abs(-675843.753489), 675843.753489);
+
+//3
+//myMathObject に power メソッドを追加してください。
+//テスト以外では Math.pow() メソッドや ** べき乗演算子を 使用してはいけません 。
 
 /**
  * @param {number} 底（てい）
