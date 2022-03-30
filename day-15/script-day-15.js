@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 // 1行目に記載している 'use strict' は削除しないでください
 
 //wormUp
@@ -10,11 +10,12 @@
 //domの世界
 
 //機能が多い！！
-  // 1.関数の名前から何をしているのか汲み取る
-  // 2.実行して仮説を確かめる。
-  // 3.ドキュメントも調べて確かめる。
+// 1.関数の名前から何をしているのか汲み取る
+// 2.実行して仮説を確かめる。
+// 3.ドキュメントも調べて確かめる。
 
-
+//##########################################################################################################
+//研究問題
 //1
 // console.log(document.getElementsByTagName("p"));
 
@@ -22,17 +23,34 @@
 
 // console.log(document.getElementById("main-header"));
 
+//###########################################################################################################
+//ペア演習
+// eloquentjavascript.net をブラウザで開いてください。
+// デベロッパコンソールを開いてください。
+// コンソール上で JavaScript を使って <h2> 要素を作成してください。
+// const elem = document.createElement("h2");
+// パートナーとあなたの名前を、その要素内のテキストに記述してください。
+// elem.innerText = "Yuta_Shoji";
+// 作成した <h2> 要素を、ページ内の 1 つ目の <h1> 要素に追加（append）してみましょう。
+// document.getElementsByTagName("h1")[0].append(elem);
+
+//###########################################################################################################
 //演習
 //1
 
-function strUpper(str) {
-    return str.toUpperCase();
-}
+// function strUpper(str) {
+//   for (const node of document.getElementsByClassName(str)) {
+//     let str = node.innerText.toUpperCase()
+//     node.innerText = str;
+//   }
+// }
 
-test(strUpper("hello123"), "HELLO123");
+// strUpper("inner-paragraph");
 
-document.querySelector("#main-header").innerHTML = "変更";
+//中級
 
-function elementAllUpper(node) {
-    const elementArray = document.querySelector()
-}
+// const element = document.getElementById("main-header");
+// element.setAttribute("style", "color : red");
+
+//応用
+// element.addEventListener("click", () => window.alert("Hello!"));
