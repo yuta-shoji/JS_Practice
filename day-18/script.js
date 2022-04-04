@@ -65,6 +65,9 @@ function getFavoriteColors(arrayOfObjects) {
  * @returns {boolean} 与えられた数値が 10 の倍数かどうか
  */
 // ここにコードを書きましょう
+function isMultipleOfTen(num) {
+    return num % 10 === 0;
+}
 
 const arrayOfNumbers = [2, 4, 6, 8, 10, 15, 20, 30, 66, 89, 100];
 
@@ -80,7 +83,7 @@ const arrayOfNumbers = [2, 4, 6, 8, 10, 15, 20, 30, 66, 89, 100];
  * @returns {boolean} 与えられた文字列に母音 (a, e, i, o, u) が1つ以上含まれているか
  */
 // ここにコードを書きましょう
-function hasAVowel(string) {
+function hasAVowel(str) {
     return string.includes("a") || string.includes("e") || string.includes("i") || string.includes("o") || string.includes("u");
 }
 
@@ -111,9 +114,6 @@ function getPositiveNumbers(number) {
 //4
 //関数 getQuestions を宣言してください。この関数は .filter メソッドを 使用してください 。
 //アロー関数も 使用してください 。アロー関数は getQuestions 関数の 内部 で使用されます。。
-
-//str[0].toUpperCase()
-//str[-1] === "?"
 
 /**
  * @param {Array<string>} ???
@@ -152,7 +152,7 @@ const arrayOfStrings3 = [
  */
 // ここにコードを書きましょう
 function getOddLengthCapitalWords(stringArray) {
-    return stringArray.filter((element) => element.length % 2 === 1 && element.toUpperCase() === element);
+    return stringArray.filter(elem => elem.length % 2 === 1 && elem.toUpperCase() === elem);
 }
 
 const arrayOfStrings4 = ["SNAKE", "APPLES", "Peaches", "PUMPKINPIES"];
@@ -173,10 +173,10 @@ function intersection(array1, array2) {
     return array1.filter(num => array2.includes(num));
 }
 
-test(intersection([1, 2, 3], [1, 2, 3]), [1, 2, 3]);
-test(intersection([1, 2, 3], [2, 3, 4]), [2, 3]);
-test(intersection([1, 2, 3], [3, 4, 5]), [3]);
-test(intersection([1, 2, 3], [4, 5, 6]), []);
+// test(intersection([1, 2, 3], [1, 2, 3]), [1, 2, 3]);
+// test(intersection([1, 2, 3], [2, 3, 4]), [2, 3]);
+// test(intersection([1, 2, 3], [3, 4, 5]), [3]);
+// test(intersection([1, 2, 3], [4, 5, 6]), []);
 
 //#######################################################################################################################
 //1
@@ -188,32 +188,42 @@ test(intersection([1, 2, 3], [4, 5, 6]), []);
  */
 // ここにコードを書きましょう
 function intersection2(...args) {
-    args.map(array => array.filter(num =>
-        ))
+    console.log('args: ', args);
+    return args[0].filter(target => {
+        let count = 1;
+        args.slice(1).flat(Infinity).forEach(num => {
+            if (target === num) { count++ };
+        });
+        return args.length === count;
+    })
 }
 
-test(intersection2([1, 2, 3], [1, 2, 3], [1, 2, 3]), [1, 2, 3]);
-test(intersection2([1, 2, 3], [2, 3, 4], [3, 4, 5]), [3]);
-test(intersection2([1, 2, 3], [3, 4, 5], [6]), []);
-test(
-    intersection2([1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [4, 5, 6]),
-    []
-);
+//allPokemon.reduce((x,y) => x + y.MaxCP, initialValue) / allPokemon.length;
 
-// //2
-// // 関数 loneRangers を宣言してください。ここでは Lodash のメソッドを 使用しないで 実装しましょう。
-// //この問題は想像よりも難しいかもしれません。🤔
+// test(intersection2([1, 2, 3], [1, 2, 3], [1, 2, 3]), [1, 2, 3]);
+// test(intersection2([1, 2, 3], [2, 3, 4], [3, 4, 5]), [3]);
+// test(intersection2([1, 2, 3], [3, 4, 5], [6]), []);
+// test(
+//     intersection2([1, 2, 3], [1, 2, 3], [1, 2, 3], [1, 2, 3], [4, 5, 6]),
+//     []
+// );
 
-// /**
-//  * @param {...Array<any>} ???
-//  * @returns {Array<any>} 与えられた配列の 1 つにしか存在しない要素だけが入った配列
-//  */
-// // ここにコードを書きましょう
+//2
+// 関数 loneRangers を宣言してください。ここでは Lodash のメソッドを 使用しないで 実装しましょう。
+//この問題は想像よりも難しいかもしれません。🤔
 
-// test(loneRangers([1, 2, 3]), [1, 2, 3]);
-// test(loneRangers([1, 2, 3], [1, 2, 3]), []);
-// test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4]), [4]);
-// test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4], [5], [6]), [4, 5, 6]);
+/**
+ * @param {...Array<any>} ???
+ * @returns {Array<any>} 与えられた配列の 1 つにしか存在しない要素だけが入った配列
+ */
+function loneRangers(...args) {
+    return args.flat(Infinity).filter((ele , pos) => args.flat(Infinity).indexOf(ele) == pos);
+}
+
+test(loneRangers([1, 2, 3]), [1, 2, 3]);
+test(loneRangers([1, 2, 3], [1, 2, 3]), []);
+test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4]), [4]);
+test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4], [5], [6]), [4, 5, 6]);
 
 // //#######################################################################################################################
 // //ナイトメア
