@@ -227,14 +227,15 @@ const subtract5 = subtract(5);
  * @param {number} ???
  * @returns {Function} 呼び出しが連鎖でき、value メソッドで値を取り出せる関数
  */
+
 let result = 0;
 
 function addCurry(num) {
     result += num;
     addCurry.value = () => {
-        let answer = result;
+        let sum = result;
         result = 0;
-        return answer;
+        return sum;
     }
     return addCurry;
 }
