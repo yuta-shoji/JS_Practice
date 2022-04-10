@@ -228,30 +228,22 @@ const subtract5 = subtract(5);
  * @returns {Function} 呼び出しが連鎖でき、value メソッドで値を取り出せる関数
  */
 let result = 0;
-function addCurry(x) {
-    let result = x;
-    console.log('result: ', result);
-    function f(y) {
-        if(y){ //部分適用
-            result += y
-            return f;
-        } else {
-            return {
-                value : function() {
-                    return result
-                }
-            }
-        }
-    }
-    return f;
-}
 
-// test(addCurry(1)(2), 3);
+function addCurry(num) {
+    result += num;
+    addCurry.value = () => {
+        let answer = result;
+        result = 0;
+        return answer;
+    }
+    return addCurry;
+}
 
 // 関数を一度呼び出すだけでも、value() で値を得られます。
 test(addCurry(1).value(), 1);
 
 // 関数呼び出しを連鎖させて、累計を出すことができます。
-// test(addCurry(1)(2).value(), 3);
-// test(addCurry(1)(2)(3)(4)(5)(6).value(), 21);
+test(addCurry(1)(2).value(), 3);
+test(addCurry(1)(2)(3)(4)(5)(6).value(), 21);
+test(addCurry(1)(2)(3)(4)(5)(6)(7)(8)(9)(10).value(), 55);
 
