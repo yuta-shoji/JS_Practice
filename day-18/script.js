@@ -1,26 +1,26 @@
-'use strict'
+"use strict";
 // 1行目に記載している 'use strict' は削除しないでください
 
 //講義演習
 function evenArray(array) {
-    const result = [];
-    for (const num of array) {
-        if (num % 2 === 0) {
-            result.push(num);
-        }
+  const result = [];
+  for (const num of array) {
+    if (num % 2 === 0) {
+      result.push(num);
     }
-    return result;
+  }
+  return result;
 }
 // test(evenArray([2, 3, 4, 5, 6]), [2, 4, 6]);
 
 function giveMeABetterName(array) {
-    const result = [];
-    for (const num of array) {
-        if (num > 3) {
-            result.push(num);
-        }
+  const result = [];
+  for (const num of array) {
+    if (num > 3) {
+      result.push(num);
     }
-    return result;
+  }
+  return result;
 }
 // test(giveMeABetterName([2, 3, 4, 5, 6]), [4, 5, 6]);
 
@@ -31,21 +31,21 @@ function giveMeABetterName(array) {
 //コードを追加して、テストをパスしましょう。関数は 5 行以下のコードになるよう実装してみましょう。
 
 const arrayOfObjects = [
-    { name: "alice", favoriteColor: "green" },
-    { name: "bob", favoriteColor: "blue" },
+  { name: "alice", favoriteColor: "green" },
+  { name: "bob", favoriteColor: "blue" },
 ];
 
 function getNames(arrayOfObjects) {
-    return arrayOfObjects.map(obj => obj["name"]);
-    // return arrayOfObjects.map(function (obj) {
-    //     return obj["name"];
-    // });
+  return arrayOfObjects.map((obj) => obj["name"]);
+  // return arrayOfObjects.map(function (obj) {
+  //     return obj["name"];
+  // });
 }
 function getFavoriteColors(arrayOfObjects) {
-    return arrayOfObjects.map(obj => obj["favoriteColor"]);
-    // return arrayOfObjects.map(function (obj) {
-    //     return obj["favoriteColor"];
-    // });
+  return arrayOfObjects.map((obj) => obj["favoriteColor"]);
+  // return arrayOfObjects.map(function (obj) {
+  //     return obj["favoriteColor"];
+  // });
 }
 
 // test(getNames(arrayOfObjects), ["alice", "bob"]);
@@ -66,7 +66,7 @@ function getFavoriteColors(arrayOfObjects) {
  */
 // ここにコードを書きましょう
 function isMultipleOfTen(num) {
-    return num % 10 === 0;
+  return num % 10 === 0;
 }
 
 const arrayOfNumbers = [2, 4, 6, 8, 10, 15, 20, 30, 66, 89, 100];
@@ -84,7 +84,13 @@ const arrayOfNumbers = [2, 4, 6, 8, 10, 15, 20, 30, 66, 89, 100];
  */
 // ここにコードを書きましょう
 function hasAVowel(str) {
-    return string.includes("a") || string.includes("e") || string.includes("i") || string.includes("o") || string.includes("u");
+  return (
+    string.includes("a") ||
+    string.includes("e") ||
+    string.includes("i") ||
+    string.includes("o") ||
+    string.includes("u")
+  );
 }
 
 const arrayOfStrings1 = ["bat", "ball", "tree", "cow", "bnm"];
@@ -103,7 +109,7 @@ const arrayOfStrings2 = ["bhg", "waa", "cvb"];
  */
 // ここにコードを書きましょう
 function getPositiveNumbers(number) {
-    return number.filter(num => num > 0);
+  return number.filter((num) => num > 0);
 }
 
 // test(getPositiveNumbers([1, 2, 3, 4, 5]), [1, 2, 3, 4, 5]);
@@ -121,15 +127,17 @@ function getPositiveNumbers(number) {
  */
 // ここにコードを書きましょう
 function getQuestions(array) {
-    return array.filter(str => str[0].match(/^[A-Z]+$/) && str[str.length - 1] === "?");
+  return array.filter(
+    (str) => str[0].match(/^[A-Z]+$/) && str[str.length - 1] === "?"
+  );
 }
 
 const arrayOfStrings3 = [
-    "Hi, there.",
-    "What in the world?",
-    "My name is JavaScript",
-    "Do you want to know a secret?",
-    "how are you?",
+  "Hi, there.",
+  "What in the world?",
+  "My name is JavaScript",
+  "Do you want to know a secret?",
+  "how are you?",
 ];
 
 // test(getQuestions(arrayOfStrings3), [
@@ -152,7 +160,9 @@ const arrayOfStrings3 = [
  */
 // ここにコードを書きましょう
 function getOddLengthCapitalWords(stringArray) {
-    return stringArray.filter(elem => elem.length % 2 === 1 && elem.toUpperCase() === elem);
+return stringArray.filter(
+    (elem) => elem.length % 2 === 1 && elem.toUpperCase() === elem
+);
 }
 
 const arrayOfStrings4 = ["SNAKE", "APPLES", "Peaches", "PUMPKINPIES"];
@@ -170,7 +180,7 @@ const arrayOfStrings4 = ["SNAKE", "APPLES", "Peaches", "PUMPKINPIES"];
  */
 // ここにコードを書きましょう
 function intersection(array1, array2) {
-    return array1.filter(num => array2.includes(num));
+  return array1.filter((num) => array2.includes(num));
 }
 
 // test(intersection([1, 2, 3], [1, 2, 3]), [1, 2, 3]);
@@ -188,14 +198,19 @@ function intersection(array1, array2) {
  */
 // ここにコードを書きましょう
 function intersection2(...args) {
-    console.log('args: ', args);
-    return args[0].filter(target => {
-        let count = 1;
-        args.slice(1).flat(Infinity).forEach(num => {
-            if (target === num) { count++ };
-        });
-        return args.length === count;
-    })
+  console.log("args: ", args);
+  return args[0].filter((target) => {
+    let count = 1;
+    args
+      .slice(1)
+      .flat(Infinity)
+      .forEach((num) => {
+        if (target === num) {
+          count++;
+        }
+      });
+    return args.length === count;
+  });
 }
 
 //allPokemon.reduce((x,y) => x + y.MaxCP, initialValue) / allPokemon.length;
@@ -217,69 +232,129 @@ function intersection2(...args) {
  * @returns {Array<any>} 与えられた配列の 1 つにしか存在しない要素だけが入った配列
  */
 function loneRangers(...args) {
-    return args.flat(Infinity).filter((ele , pos) => args.flat(Infinity).indexOf(ele) == pos);
+  return args.flat(Infinity).filter((elem, index) => {
+    let newArray = JSON.parse(JSON.stringify(args.flat(Infinity)));
+    newArray.splice(index, 1);
+    return !newArray.includes(elem);
+  });
 }
 
-test(loneRangers([1, 2, 3]), [1, 2, 3]);
-test(loneRangers([1, 2, 3], [1, 2, 3]), []);
-test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4]), [4]);
-test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4], [5], [6]), [4, 5, 6]);
+// test(loneRangers([1, 2, 3]), [1, 2, 3]);
+// test(loneRangers([1, 2, 3], [1, 2, 3]), []);
+// test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4]), [4]);
+// test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4], [5], [6]), [4, 5, 6]);
 
-// //#######################################################################################################################
-// //ナイトメア
-// //1
-// //関数 shuffle を宣言してください。ここでは Lodash のメソッドを 使用しないで 実装しましょう。
+//#######################################################################################################################
+//ナイトメア
+//1
+//関数 shuffle を宣言してください。ここでは Lodash のメソッドを
+//使用しないで 実装しましょう。
 
-// /**
-//  * @param {Array<any>} ???
-//  * @returns {Array<any>} 与えられた配列をランダムな順番に並び替えた配列
-//  */
-// // ここにコードを書きましょう
+/**
+ * @param {Array<any>} ???
+ * @returns {Array<any>} 与えられた配列をランダムな順番に並び替えた配列
+ */
+// ここにコードを書きましょう
+const AllArray = [];
 
-// // この種の関数をテストするのは簡単ではありません
-// // たくさん console.log を使って、結果がランダムで表示されるかどうかを *確認* してください。
+function shuffle(array) {
+    const result = [];
+    const checkArray = [];
+    let random = Math.floor(Math.random() * array.length);
+    for (let i = 0; i < array.length; i++) {
+        while (checkArray.includes(random)) {
+            random = Math.floor(Math.random() * array.length);
+        }
+        result.push(array[random]);
+        checkArray.push(random);
+    }
+    AllArray.push(result);
+    return result;
+}
 
-// const NUM_TRIALS = 10;
+function randomTest() {
+    let existFlg = true;
+    let randomFlg = true;
+    originArray.forEach(num => AllArray.forEach(array => {
+      //元の配列の要素が含まれているかのテスト
+      if (!(array.includes(num))) {
+          existFlg = false;
+          return;
+      }
+      //ランダムに生成された配列全てが被っていないかのテスト
+      AllArray.forEach(array2 => {
+        if (JSON.parse(JSON.stringify(array)) === JSON.parse(JSON.stringify(array2))) {
+          randomFlg = false;
+          return;
+        }
+      })
+    }));
+    if(existFlg && randomFlg) {
+        return "it's random!!!"
+    } else {
+        return "it's Not random..."
+    }
+}
+
+// この種の関数をテストするのは簡単ではありません
+// たくさん console.log を使って、結果がランダムで表示されるかどうかを
+// *確認* してください。
+
+const NUM_TRIALS = 10;
+const originArray = [1, 2, 3, 4];
 
 // for (let i = 0; i < NUM_TRIALS; ++i) {
-//     console.log(shuffle([1, 2, 3, 4]));
+//     console.log(shuffle(originArray));
 // }
+// console.log(randomTest());
 
-// // チャレンジ精神が旺盛な方は、配列の順番が本当にランダムかどうかを自動でテストする方法を考えてみましょう。
+// チャレンジ精神が旺盛な方は、配列の順番が本当にランダムかどうかを
+//自動でテストする方法を考えてみましょう。
 
-// //2
-// //関数 sort を宣言してください。ここでは Lodash のメソッドを 使用しないでください。
-// //ビルトインの .sort メソッドも 使用しないでください（テストを除く）。
-// //この問題で重要なのは、速く 並び替えられる処理にすることです。
-// //実装のしかたによっては、処理に 長い時間 がかかります。
-// //開発中は NUM_ELEMENTS の値を小さくしておくのがいいかもしれません。
 
-// /**
-//  * @param {Array<number>} ???
-//  * @returns {Array<number>} 与えられた配列の中の数字がソートされて入っている配列
-//  */
-// // ここにコードを書きましょう
+//2
+//関数 sort を宣言してください。ここでは Lodash のメソッドを 使用しないでください。
+//ビルトインの .sort メソッドも 使用しないでください（テストを除く）。
+//この問題で重要なのは、速く 並び替えられる処理にすることです。
+//実装のしかたによっては、処理に 長い時間 がかかります。
+//開発中は NUM_ELEMENTS の値を小さくしておくのがいいかもしれません。
 
-// const array = [];
+/**
+ * @param {Array<number>} ???
+ * @returns {Array<number>} 与えられた配列の中の数字がソートされて入っている配列
+ */
+// ここにコードを書きましょう
+function sort (arr) {
+  const result = [];
+  const newArray = JSON.parse(JSON.stringify(arr));
+  for (let i = 0; i < arr.length; ++i) {
+    let min = Math.min(...newArray);
+    newArray.splice(newArray.indexOf(min), 1);
+    result.push(min);
+  }
+  return result;
+}
 
-// const NUM_ELEMENTS = 100000;
+const array = [];
 
-// for (let i = 0; i < NUM_ELEMENTS; ++i) {
-//     array.push(Math.random());
-// }
+const NUM_ELEMENTS = 10000;
 
-// console.log(array);
+for (let i = 0; i < NUM_ELEMENTS; ++i) {
+    array.push(Math.random());
+}
 
-// console.time("sort");
-// const startTime = Date.now();
-// const sortedArray = sort(array);
-// const endTime = Date.now();
-// console.timeEnd("sort");
+console.log(array);
 
-// // ソートできますか。
-// test(
-//     sortedArray,
-//     array.slice().sort((a, b) => a - b)
-// );
-// // 1 秒以内に処理が終わりますか。
-// test(endTime - startTime < 1000, true);
+console.time("sort");
+const startTime = Date.now();
+const sortedArray = sort(array);
+const endTime = Date.now();
+console.timeEnd("sort");
+
+// ソートできますか。
+test(
+    sortedArray,
+    array.slice().sort((a, b) => a - b)
+);
+// 1 秒以内に処理が終わりますか。
+test(endTime - startTime < 1000, true);
