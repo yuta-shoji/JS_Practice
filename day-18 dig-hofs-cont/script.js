@@ -234,15 +234,15 @@ function intersection2(...args) {
 function loneRangers(...args) {
   return args.flat(Infinity).filter((elem, index) => {
     let newArray = JSON.parse(JSON.stringify(args.flat(Infinity)));
-    newArray.splice(index, 1);
+    newArray.splice(index, 0);
     return !newArray.includes(elem);
   });
 }
 
-// test(loneRangers([1, 2, 3]), [1, 2, 3]);
-// test(loneRangers([1, 2, 3], [1, 2, 3]), []);
-// test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4]), [4]);
-// test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4], [5], [6]), [4, 5, 6]);
+test(loneRangers([1, 2, 3]), [1, 2, 3]);
+test(loneRangers([1, 2, 3], [1, 2, 3]), []);
+test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4]), [4]);
+test(loneRangers([1, 2, 3], [1, 2, 3], [1, 2, 3, 4], [5], [6]), [4, 5, 6]);
 
 //#######################################################################################################################
 //ナイトメア
@@ -351,10 +351,10 @@ const sortedArray = sort(array);
 const endTime = Date.now();
 console.timeEnd("sort");
 
-// ソートできますか。
-test(
-    sortedArray,
-    array.slice().sort((a, b) => a - b)
-);
-// 1 秒以内に処理が終わりますか。
-test(endTime - startTime < 1000, true);
+// // ソートできますか。
+// test(
+//     sortedArray,
+//     array.slice().sort((a, b) => a - b)
+// );
+// // 1 秒以内に処理が終わりますか。
+// test(endTime - startTime < 1000, true);

@@ -1,0 +1,19 @@
+.box {
+    width: 200px;
+    height: 200px;
+    border: solid 3px #000;
+    background-color: rgb(15, 188, 119);
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sea {
+    width: 300px;
+    background-color: rgb(24, 108, 177);
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

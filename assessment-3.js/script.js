@@ -26,11 +26,11 @@ test(doTheThing([1, 2, 3, 3.5, 4, 4.5, 5, 6, 7, 8]), [1, 4, 9, 12.25, 16, 20.25,
 let refrigerator = [];
 
 function putItemInRefrigerator(drink) {
-    return refrigerator.push(drink);
+    refrigerator.push(drink);
 }
 
 function removeItemFromRefrigerator(drink) {
-    return refrigerator = refrigerator.filter(elem => elem !== drink);
+    refrigerator = refrigerator.filter(elem => elem !== drink);
 }
 
 function getItemsInRefrigerator() {
