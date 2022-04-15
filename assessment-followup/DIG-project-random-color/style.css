@@ -1,0 +1,43 @@
+/* This is a 'stylesheet'.
+It defines how the elements appear when they are rendered by the browser. */
+
+html {
+  height: 100%;
+}
+
+body {
+  /* align-items: center; */
+  /* display: flex; */
+  font-family: monospace;
+  /* justify-content: center; */
+}
+
+.outer{
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  border-radius: 8px;
+  font-size: 20pt;
+  height: 50px;
+  width: 200px;
+}
+
+#colorText{
+  line-height:200px;
+  text-align:center;
+  font-size: 30px;
+}
+.colorBox{
+  width: 700px;
+  border: solid 3px #000;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40px;
+}
