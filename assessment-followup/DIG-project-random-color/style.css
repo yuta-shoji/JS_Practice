@@ -6,10 +6,7 @@ html {
 }
 
 body {
-  /* align-items: center; */
-  /* display: flex; */
   font-family: monospace;
-  /* justify-content: center; */
 }
 
 .outer{
@@ -23,16 +20,18 @@ button {
   border-radius: 8px;
   font-size: 20pt;
   height: 50px;
-  width: 200px;
+  width: 300px;
+  font-family: "Arial Black";
 }
 
 #colorText{
   line-height:200px;
   text-align:center;
-  font-size: 30px;
+  font-size: 60px;
+  font-family: "Arial Black";
 }
 .colorBox{
-  width: 700px;
+  width: 920px;
   border: solid 3px #000;
   background-color: rgb(255, 255, 255);
   text-align: center;
@@ -40,4 +39,24 @@ button {
   margin-left: auto;
   margin-right: auto;
   font-size: 40px;
+}
+
+.countColors{
+  align-items: center;
+  display: flex;
+  font-family: monospace;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+
+.space{
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100px;
+  padding: 10px;
+  background-color: rgb(43, 43, 43);
+  color: rgb(255, 255, 255);
+  font-family: "Arial Black";
+  border-radius: 10px;
 }
